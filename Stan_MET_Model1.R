@@ -16,6 +16,7 @@
 # Loading Library
 library(dplyr)
 library(rstan)
+rstan_options(auto_write = TRUE)
 
 # Loading data
 df <- read.csv("maize_dataset.csv", h = TRUE)
