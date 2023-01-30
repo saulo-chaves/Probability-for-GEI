@@ -224,6 +224,11 @@ Model3 <- sampling(stan_df_comp,
                      cores = 4,
                      chain = 4)
 
+
+# Save Image
+save.image("Model3.RData")
+
+
 # Extract stan results
 out <- rstan::extract(Model3, permuted = TRUE)
 
@@ -291,9 +296,6 @@ g_map <- get_map(g_post)
 # For the genotype effects
 gl_map <- get_map(gl_post)
 
-
-# Save Image
-save.image("Model3.RData")
 
 
 

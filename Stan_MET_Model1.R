@@ -14,9 +14,8 @@
 ########################################################################################################################
 
 # Loading Library
-library(dplyr)
+library(tidyverse)
 library(rstan)
-rstan_options(auto_write = TRUE)
 
 # Loading data
 df <- read.csv("maize_dataset.csv", h = TRUE)
@@ -194,7 +193,10 @@ Model1 <- sampling(stan_df_comp,
                      cores = 4,
                      chain = 4)
 
-# Extract stan results
+# Save 
+save.image("Model1.RData")
+
+# Extract stan results - A função inicia aqui
 out <- rstan::extract(Model1, permuted = TRUE)
 
 # Subset replication posterior effects
@@ -250,10 +252,6 @@ g_map <- get_map(g_post)
 
 # For the genotype by location effects
 gl_map <- get_map(gl_post)
-
-# Save 
-save.image("Model1.RData")
-
 
 
 

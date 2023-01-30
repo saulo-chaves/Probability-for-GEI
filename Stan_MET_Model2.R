@@ -210,6 +210,9 @@ Model2 <- sampling(stan_df_comp,
                   cores = 4,
                   chain = 4)
 
+# Save Image
+save.image("Model2.RData")
+
 # Extract stan results (NUTS)
 out <- rstan::extract(Model2, permuted = TRUE)
 
@@ -274,8 +277,7 @@ g_map <- get_map(g_post)
 gl_map <- get_map(gl_post)
 
 
-# Save Image
-save.image("Model2.RData")
+
 
 
 
